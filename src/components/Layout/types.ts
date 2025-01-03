@@ -5,13 +5,8 @@ export interface LayoutProps {
 }
 
 export interface IUserDataContext {
-  data: {
-    name: string;
-    surname: string;
-    age: string | number;
-    position: string;
-  };
-  onSubmitChange: Dispatch<SetStateAction<UserData>>;
+  data: UserData[];
+  onSubmitChange: Dispatch<SetStateAction<UserData[]>>;
 }
 
 export interface UserData {

@@ -3,10 +3,7 @@ import * as Yup from 'yup';
 
 import Input from '../Input/Input';
 import Button from '../Button/Button';
-import {
-  EmployeeFormContainer,
-  InputsContainer,
-} from './styles';
+import { EmployeeFormContainer, InputsContainer } from './styles';
 import { EmployeeFormValue, EMPLOYEE_FORM_NAMES } from './types';
 import Checkbox from '../CheckBox/CheckBox';
 import { useContext } from 'react';
@@ -15,7 +12,7 @@ import { UserDataContext } from '../Layout/Layout';
 function EmployeeForm() {
   const nameRegx = /^[a-zA-Z]+$/;
 
-  const {onSubmitChange} = useContext(UserDataContext);
+  const { data, onSubmitChange } = useContext(UserDataContext);
 
   const schema = Yup.object().shape({
     [EMPLOYEE_FORM_NAMES.FIRST_NAME]: Yup.string()
@@ -55,13 +52,16 @@ function EmployeeForm() {
     validationSchema: schema,
     validateOnChange: false,
     onSubmit: (values: EmployeeFormValue) => {
-      onSubmitChange({
-        name: values.first_name,
-        surname: values.last_name,
-        age: values.age,
-        position: values.position,
-      })
-      formik.resetForm();
+      onSubmitChange([
+        ...data,
+        {
+          name: values.first_name,
+          surname: values.last_name,
+          age: values.age,
+          position: values.position,
+        },
+      ]);
+      formik.resetForm({values: formik.initialValues});
     },
   });
 

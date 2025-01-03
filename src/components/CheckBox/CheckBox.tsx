@@ -12,7 +12,7 @@ function Checkbox({name, id, value, onChange, label,error}:CheckBoxProps) {
       <CheckBoxElement
         id={id}
         name={name}
-        value={String(value)}
+        checked={value}
         type='checkbox'
         onChange={onChange}
       />

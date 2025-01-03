@@ -6,17 +6,12 @@ import { Header, NavContainer, LayoutComponent, Main } from './styles';
 import { LayoutProps, UserData, IUserDataContext } from './types';
 
 export const UserDataContext = createContext<IUserDataContext>({
-  data: { name: '', surname: '', age: 0, position: '' },
+  data: [],
   onSubmitChange: () => {},
 });
 
 function Layout({ children }: LayoutProps) {
-  const [userData, setUserData] = useState<UserData>({
-    name: '',
-    surname: '',
-    age: 0,
-    position: '',
-  });
+  const [userData, setUserData] = useState<UserData[]>([]);
 
   return (
     <LayoutComponent>
