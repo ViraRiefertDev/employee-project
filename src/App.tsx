@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GlobalStyles from './styles/GlobalStyles';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
-import React from 'react';
+import CreateEmployee from './pages/CreateEmployee/CreateEmployee';
+import Employees from './pages/Employees/Employees';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <Layout>
           <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/createemployee' element={<CreateEmployee/>}/>
+          <Route path='/employees' element={<Employees/>}/>
           </Routes>
         </Layout>
       </BrowserRouter>
