@@ -4,6 +4,10 @@ export interface ButtonProps{
   name:string;
   type?:ButtonType;
   onClick?: () => void;
-  disabled?:boolean;
   buttonWidth?: string;
+  disabled?:boolean;
+  deleteButton?:boolean;
 }
+
+
+

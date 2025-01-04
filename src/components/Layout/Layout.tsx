@@ -7,11 +7,11 @@ import { LayoutProps, UserData, IUserDataContext } from './types';
 
 export const UserDataContext = createContext<IUserDataContext>({
   data: [],
-  onSubmitChange: () => {},
+  onDataChange: () => {},
 });
 
 function Layout({ children }: LayoutProps) {
-  const [userData, setUserData] = useState<UserData[]>([]);
+  const [usersData, setUsersData] = useState<UserData[]>([]);
 
   return (
     <LayoutComponent>
@@ -24,8 +24,8 @@ function Layout({ children }: LayoutProps) {
       </Header>
       <UserDataContext.Provider
         value={{
-          data: userData,
-          onSubmitChange: setUserData,
+          data: usersData,
+          onDataChange: setUsersData,
         }}
       >
         <Main>{children}</Main>

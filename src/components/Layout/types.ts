@@ -6,7 +6,7 @@ export interface LayoutProps {
 
 export interface IUserDataContext {
   data: UserData[];
-  onSubmitChange: Dispatch<SetStateAction<UserData[]>>;
+  onDataChange: Dispatch<SetStateAction<UserData[]>>;
 }
 
 export interface UserData {

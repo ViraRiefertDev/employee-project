@@ -12,7 +12,7 @@ import { UserDataContext } from '../Layout/Layout';
 function EmployeeForm() {
   const nameRegx = /^[a-zA-Z]+$/;
 
-  const { data, onSubmitChange } = useContext(UserDataContext);
+  const { data, onDataChange } = useContext(UserDataContext);
 
   const schema = Yup.object().shape({
     [EMPLOYEE_FORM_NAMES.FIRST_NAME]: Yup.string()
@@ -52,7 +52,7 @@ function EmployeeForm() {
     validationSchema: schema,
     validateOnChange: false,
     onSubmit: (values: EmployeeFormValue) => {
-      onSubmitChange([
+      onDataChange([
         ...data,
         {
           name: values.first_name,

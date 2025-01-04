@@ -1,16 +1,17 @@
 import styled from '@emotion/styled';
 
 interface ButtonStyledProps {
-  disabled: boolean;
-  buttonWidth?:string;
+  disabled?: boolean;
+  buttonWidth?: string;
+  deleteButton?: boolean;
 }
 
 export const MainButton = styled.button<ButtonStyledProps>`
-
   width: 100%;
   padding: 20px 20px;
 
-  background-color: ${({ disabled }) => (disabled ? '#b8b6ae' : '#1f27f5')};
+  background-color: ${({ disabled, deleteButton }) =>
+    disabled ? '#b8b6ae' : (deleteButton ? '#CF0000' : '#1f27f5')};
   font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 600;
